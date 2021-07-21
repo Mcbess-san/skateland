@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un post
+{% endblock %}
+
+{% block body %}
+	<h1 class="fiverr py-3 text-center">Edit a post</h1>
+
+	{{ include('post/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+	{{ include('post/_delete_form.html.twig') }}
+
+	<div class="form-group d-flex justify-content-center t-5 col col-lg-6 col-md-12 mx-auto">
+		<a class="btn w-50 mt-3 mb-3 mx-3 post-button" href="{{ path('post_index') }}">Retour sur le profil</a>
+	</div>
+{% endblock %}
