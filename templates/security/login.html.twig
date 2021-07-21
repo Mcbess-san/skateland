@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }}- Se connecter
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('login') }}
+{% endblock %}
+
+{% block body %}
+<main class="d-flex flex-column justify-content-center align-items-center">
+    <form method="post">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                Vous êtes connecté en tant que
+                {{ app.user.username }},
+                <a href="{{ path('app_logout') }}">Déconnection</a>
+            </div>
+        {% endif %}
+
+        {% if app.user is null %}
+        <div class="container">
+            <h1 class="d-flex h1 text-light justify-content-center">SKATELAND</h1>
+            <label for="inputUsername">Nom d'utilisateur</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+            class="form-control mt-1 mb-2" autocomplete="username" required autofocus>
+            <label for="inputPassword">Mot de passe</label>
+            <input type="password" name="password" id="inputPassword" class="form-control mt-1 mb-2"
+            autocomplete="current-password" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="d-flex justify-content-between mt-2">
+                <a href="{{ path('inscription') }}" class="btn btn-outline-primary">S'inscrire</a>
+                <button class="btn btn-primary me-2" type="submit">
+                    Connexion
+                </button>
+            </div>
+        </div>
+        {% endif %}
+    </form>
+</main>
+{% endblock %}
