@@ -24,7 +24,7 @@ class UserFixtures extends Fixture
         $faker = Factory::create();
 
         $user = new User();
-        $user->setEmail('romainsamuel18@gmail.com');
+        $user->setEmail('romain@samuel.com');
         $user->setFirstname('Romain');
         $user->setLastname('Samuel');
         $user->setPassword($this->passwordEncoder->encodePassword(
@@ -35,7 +35,7 @@ class UserFixtures extends Fixture
         $manager->flush();
 
         $admin = new User();
-        $admin->setEmail('mcbess18@gmail.com');
+        $admin->setEmail('mcbess@samuel.com');
         $admin->setFirstname('Mcbess');
         $admin->setLastname('Samuel');
         $admin->setRoles(['ROLE_ADMIN']);
