@@ -14,3 +14,15 @@ h1 {
     font-size: $title-size;
     color: $light;
 }
+
+.btn-primary {
+    font-weight: bold;
+    border-radius: 15px;
+    text-transform: uppercase;
+  }
+  
+  .btn-outline-primary {
+    font-weight: bold;
+    border-radius: 15px;
+    text-transform: uppercase;
+  }
