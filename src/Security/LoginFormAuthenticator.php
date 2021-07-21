@@ -2,13 +2,14 @@
 
 namespace App\Security;
 
-use App\Entity\AdminUser;
-use Doctrine\ORM\EntityManagerInterface as EMI;
+use FFI\Exception;
+use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface as UGI;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as UPE;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\Security;
@@ -32,14 +33,14 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     private $passwordEncoder;
 
     public function __construct(
-        EMI $eManager,
-        UGI $urlGn,
-        CsrfTokenManagerInterface $cTM,
-        UPE $passwordEncoder
+        EntityManagerInterface $entityManager,
+        UrlGeneratorInterface $urlGenerator,
+        CsrfTokenManagerInterface $csrfTokenManager,
+        UserPasswordEncoderInterface $passwordEncoder
     ) {
-        $this->entityManager = $eManager;
-        $this->urlGenerator = $urlGn;
-        $this->csrfTokenManager = $cTM;
+        $this->entityManager = $entityManager;
+        $this->urlGenerator = $urlGenerator;
+        $this->csrfTokenManager = $csrfTokenManager;
         $this->passwordEncoder = $passwordEncoder;
     }
 
@@ -100,7 +101,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate('home'));
+        return new RedirectResponse($this->urlGenerator->generate('accueil'));
     }
 
     protected function getLoginUrl()

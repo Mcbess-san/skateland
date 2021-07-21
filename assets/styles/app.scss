@@ -3,26 +3,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 body {
-    background-color: $tertiary;
-    color: $light;
-    font-family: $text-font;
-    font-size: $text-size;
+  background-color: $tertiary;
+  color: $light;
+  font-family: $text-font;
+  font-size: $text-size;
 }
 
 h1 {
-    font-family: $text-font;
-    font-size: $title-size;
-    color: $light;
+  font-family: $text-font;
+  font-size: $title-size;
+  color: $light;
 }
 
 .btn-primary {
-    font-weight: bold;
-    border-radius: 15px;
-    text-transform: uppercase;
-  }
+  font-weight: bold;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
   
-  .btn-outline-primary {
-    font-weight: bold;
-    border-radius: 15px;
-    text-transform: uppercase;
-  }
+.btn-outline-primary {
+  font-weight: bold;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 123px;
+
+}
+
