@@ -1,6 +1,16 @@
 @import 'variables.scss';
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
 body {
-    background-color: $wild-color;
+    background-color: $tertiary;
+    color: $light;
+    font-family: $text-font;
+    font-size: $text-size;
+}
+
+h1 {
+    font-family: $text-font;
+    font-size: $title-size;
     color: $light;
 }
