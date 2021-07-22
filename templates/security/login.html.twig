@@ -11,7 +11,7 @@
 
 {% block body %}
 <main class="d-flex flex-column justify-content-center align-items-center">
-    <h1 class="d-flex h1 text-light justify-content-center">SKATELAND</h1>
+    <h1 class="d-flex h1 text-light justify-content-center my-5">SKATELAND</h1>
     <form method="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -34,7 +34,6 @@
 			<input type="password" name="password" id="inputPassword"
             class="form-control" autocomplete="current-password" required>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
             <button class="btn btn-primary mt-3" type="submit">
                 Connexion
             </button>
