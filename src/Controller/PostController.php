@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 use App\Entity\User;
+use DateTime;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +22,7 @@ class PostController extends AbstractController
      */
     public function index(PostRepository $postRepository): Response
     {
-        return $this->render('home/index.html.twig', [
+        return $this->render('post/index.html.twig', [
             'posts' => $postRepository->findAll(),
         ]);
     }
@@ -37,6 +38,9 @@ class PostController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $post->setCreatedAt(new DateTime('now'));
+            /** @phpstan-ignore-next-line */
+            $post->setUser($this->getUser());
             $entityManager->persist($post);
             $entityManager->flush();
 
@@ -50,7 +54,7 @@ class PostController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="post_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="post_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Post $post): Response
     {

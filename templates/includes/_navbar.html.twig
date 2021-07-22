@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand navbar-light bg-primary fixed-top">
   <div class="container-fluid d-flex justify-content-between">
-    <a class="navbar-brand" href="{{ path('accueil') }}">
+    <a class="navbar-brand" href="{{ path('post_index') }}">
       <img class="logo" src="{{ asset('build/images/skatelandicon.png') }}" alt = "logo skateland">
     </a>
     <div class="navbar-nav d-flex justify-content-between">
       {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a class="nav-link btn text-secondary" href="">{{ app.user.firstname }}</a>
+        <a class="nav-link btn text-secondary" href="{{ path('post_index') }}">{{ app.user.firstname }}</a>
         <a class="nav-link btn text-light" href="{{ path('app_logout') }}">Deconnexion</a>
       {% else %}
         <a class="nav-link btn text-light" href="{{ path('app_login') }}">Se connecter</a>

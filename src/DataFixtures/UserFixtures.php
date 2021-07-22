@@ -10,7 +10,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends Fixture
 {
-    public const USERS = 50;
+    public const MAX_USERS = 20;
 
     private $passwordEncoder;
 
@@ -45,7 +45,7 @@ class UserFixtures extends Fixture
         ));
         $manager->persist($admin);
 
-        for ($i = 0; $i < self::USERS; $i++) {
+        for ($i = 0; $i < self::MAX_USERS; $i++) {
             $user = new User();
             $user->setEmail($faker->email());
             $user->setFirstname($faker->firstName());

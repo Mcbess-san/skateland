@@ -2,12 +2,17 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @Vich\Uploadable
  */
 class Post
 {
@@ -19,15 +24,31 @@ class Post
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @Vich\UploadableField(mapping="posts", fileNameProperty="pictureName")
+     *
+     * @var File|null
      */
-    private string $picture;
+    private $pictureFile;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
+     *
+     * @var string|null
+     */
+    private $pictureName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Please fill the description field.")
      */
     private string $description;
+
+    /**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \DateTimeInterface|null
+     */
+    private $createdAt;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
@@ -40,14 +61,14 @@ class Post
         return $this->id;
     }
 
-    public function getPicture(): ?string
+    public function getPictureName(): ?string
     {
-        return $this->picture;
+        return $this->pictureName;
     }
 
-    public function setPicture(string $picture): self
+    public function setPictureName(string $pictureName): self
     {
-        $this->picture = $picture;
+        $this->pictureName = $pictureName;
 
         return $this;
     }
@@ -72,6 +93,34 @@ class Post
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function setPictureFile(?File $pictureFile = null): void
+    {
+        $this->pictureFile = $pictureFile;
+
+        if (null !== $pictureFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->createdAt = new DateTime();
+        }
+    }
+
+    public function getPictureFile(): ?File
+    {
+        return $this->pictureFile;
+    }
+
+    public function getCreatedAt(): ?DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

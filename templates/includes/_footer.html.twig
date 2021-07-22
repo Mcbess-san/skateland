@@ -1,7 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-bottom p-0">
     <div class="container-fluid d-flex justify-content-center">
-        <a class="nav-link btn text-light" href="{{ path('accueil') }}">Accueil</a>
-        <a class="nav-link btn text-light" href="#">Profil</a>
-        <a class="nav-link btn text-light" href="#">Recherche</a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <a class="nav-link text-light" href="{{ path('home') }}">Accueil</a>
+        <a class="nav-link text-light" href="{{ path('post_index') }}">Profil</a>
+    {% else %}
+        <a class="nav-link text-light" href="{{ path('home') }}">Accueil</a>
+    {% endif %}
     </div>
 </nav>

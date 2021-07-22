@@ -15,6 +15,33 @@ h1 {
   color: $light;
 }
 
+p {
+  color: $light;
+}
+
+.post {
+  border-radius: $post-card-border-radius;
+}
+
+.username {
+  color: $secondary;
+}
+
+.post-button {
+  background-color: $light;
+  color: $light;
+  border-radius: 5px;
+}
+
+.post-image {
+  border-radius: $post-image-border-radius;
+}
+
+header {
+  background-color: $tertiary;
+  height: 50vh;
+}
+
 .btn-primary {
   font-weight: bold;
   border-radius: 15px;
@@ -32,3 +59,17 @@ h1 {
 
 }
 
+.data-card {
+  max-width: 20.75em;
+  min-height: 13em;
+  border: 1px solid $tertiary;
+  border-radius: 10px;
+}
+
+.data-card p {
+  height: 60px;
+}
+
+.data-card h5 {
+  height: 40px;
+}
