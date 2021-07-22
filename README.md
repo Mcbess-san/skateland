@@ -1,16 +1,20 @@
 # Skateland
- 
+
 ## Index
-1. [Description](#Description)
+1. [Description and link](#Description and link)
 2. [Prerequisites](#Prerequisites)
 3. [Installation](#Installation)
 4. [Built-With](#Built-With)
 5. [Authors](#Authors)
 6. [Deployment](#Deployment)
 
+
 ## Description
 
 Skateland is an instagram like app 
+[Figma](https://www.figma.com/file/8biK9MnT2Tn52924yzYeZw/Untitled?node-id=2%3A219)
+[Backlog](https://docs.google.com/spreadsheets/d/1ZIZwpe5Cwif6PEz9tPRw_F4hD1XtgN7sdidFxW9tBkE/edit?usp=sharing)
+[BDD Model](https://dbdiagram.io/d/60d9c5dcdd6a59714822d672)
 
 ## Prerequisites
 
