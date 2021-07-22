@@ -11,10 +11,10 @@
 
 ## Description
 
-Skateland is an instagram like app 
-[Figma](https://www.figma.com/file/8biK9MnT2Tn52924yzYeZw/Untitled?node-id=2%3A219)
-[Backlog](https://docs.google.com/spreadsheets/d/1ZIZwpe5Cwif6PEz9tPRw_F4hD1XtgN7sdidFxW9tBkE/edit?usp=sharing)
-[BDD Model](https://dbdiagram.io/d/60d9c5dcdd6a59714822d672)
+* Skateland is an app where u can post skate pictures or other picture but always in the sake mantality, have a good ride !
+* [Figma](https://www.figma.com/file/8biK9MnT2Tn52924yzYeZw/Untitled?node-id=2%3A219)
+* [Backlog](https://docs.google.com/spreadsheets/d/1ZIZwpe5Cwif6PEz9tPRw_F4hD1XtgN7sdidFxW9tBkE/edit?usp=sharing)
+* [BDD Model](https://dbdiagram.io/d/60d9c5dcdd6a59714822d672)
 
 ## Prerequisites
 
