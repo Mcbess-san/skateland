@@ -12,9 +12,9 @@
 {% block body %}
 <main class="d-flex flex-column justify-content-center align-items-center">
     <h1 class="d-flex h1 text-light justify-content-center my-5">INSCRIPTION</h1>
-    <form>   
+    <form>
         {% for flash_error in app.flashes('verify_email_error') %}
-            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
         {% endfor %}
         <div class="container">
             {{ form_start(registrationForm) }}

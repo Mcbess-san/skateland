@@ -25,7 +25,10 @@ class Post
 
     /**
      * @Vich\UploadableField(mapping="posts", fileNameProperty="pictureName")
-     *
+     * @Assert\File(
+     *      maxSize = "2M",
+     *      mimeTypes = {"image/jpeg", "image/png", "image/webp"},
+     * )
      * @var File|null
      */
     private $pictureFile;

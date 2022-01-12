@@ -7,7 +7,7 @@
         <div class="m-3 py-5 row row-cols-1 row-cols-md-3 g-4">
             {% for post in posts %}
                 <div class="col">
-                    <div class="data-card shadow bg-secondary rounded-5 p-0 m-0 post">
+                    <div class="data-card shadow bg-dark rounded-5 p-0 m-0 post">
                         <img src="{{ vich_uploader_asset(post) }}" class="card-img-top post-image" alt="...">
                         <div class="d-flex justify-content-between card-body">
                             <div>
@@ -19,7 +19,7 @@
                                 <p class="pt-2 card-text">{{ post.description }}</p>
                             </div>
                         </div>
-                        <a href="#" class="d-flex justify-content-center btn mw-80 btn-primary my-3 mx-3">Commenter</a>
+                        <a href="#" class="d-flex justify-content-center btn mw-80 btn-secondary my-3 mx-3">Commenter</a>
                     </div>
                 </div>
             {% else %}
